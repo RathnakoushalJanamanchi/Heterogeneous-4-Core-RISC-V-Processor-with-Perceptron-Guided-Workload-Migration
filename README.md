@@ -806,10 +806,4 @@ Research Intern @ NIT Warangal & IIT Hyderabad
 
 ---
 
-## 📜 License
-
-This project is released for academic and research purposes under the MIT License.
-
----
-
 *Built with ❤️ using OpenLane v2, sky130A PDK, Yosys, OpenROAD, and cocotb.*
