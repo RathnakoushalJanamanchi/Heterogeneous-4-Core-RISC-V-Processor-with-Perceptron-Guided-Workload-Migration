@@ -1,0 +1,19 @@
+Design Name: hetero_4core_top
+Run Directory: /openlane/designs/hetero_4core/runs/RUN_2026.05.09_13.59.48
+----------------------------------------
+
+Magic DRC Summary:
+Source: /openlane/designs/hetero_4core/runs/RUN_2026.05.09_13.59.48/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/hetero_4core/runs/RUN_2026.05.09_13.59.48/logs/signoff/39-hetero_4core_top.lef.lvs.log
+Number of nets: 45460                      |Number of nets: 45460                      
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /openlane/designs/hetero_4core/runs/RUN_2026.05.09_13.59.48/logs/signoff/41-arc.log
+Pin violations: 32
+Net violations: 28
