@@ -1034,7 +1034,7 @@ cat runs/RUN_*/reports/metrics.csv
 
 *Sky130A PDK · OpenLane v2 · Yosys · OpenROAD · TritonRoute · OpenSTA · Magic · Netgen · cocotb · Icarus Verilog*
 
-**Koushal** — B.Tech ECE (VLSI Design Specialization), SR University, Warangal
+**Rathna Koushal Janamanchi** — B.Tech ECE (VLSI Design Specialization), SR University, Warangal
 Samsung Fellowship Grade II (IISc/Synopsys/Samsung Semiconductor India Research)
 IEEE ICDCS 2026 Best Paper Award · 2× Filed Patents
 Research Internships: NIT Warangal (Dr. Ilaiah Kavati) · IIT Hyderabad (Dr. Chandrasekhar Murapaka)
