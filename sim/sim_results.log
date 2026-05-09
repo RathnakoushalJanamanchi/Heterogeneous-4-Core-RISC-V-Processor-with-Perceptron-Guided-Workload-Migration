@@ -1,0 +1,630 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/ubuntu/OpenLane/designs/hetero_4core/sim'
+mkdir -p sim_build
+/usr/bin/iverilog -o sim_build/sim.vvp -s hetero_4core_top -g2012 -f sim_build/cmds.f -g2012  /home/ubuntu/OpenLane/designs/hetero_4core/rtl/hetero_4core.v
+/home/ubuntu/.local/lib/python3.10/site-packages/cocotb_tools/makefiles/simulators/Makefile.icarus:66: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=test_hetero_4core COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=hetero_4core_top TOPLEVEL_LANG=verilog \
+         /usr/bin/vvp -M /home/ubuntu/.local/lib/python3.10/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/sim.vvp   
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.10.14 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 11.0 (stable)
+     0.00ns WARNING  gpi                                vpi_iterate returned NULL for type vpiInstance for object NULL
+     0.00ns INFO     cocotb                             Seeding Python random module with 1778317725
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/ubuntu/.local/lib/python3.10/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_hetero_4core.TC001_aes_always_on_after_reset (1/150)
+                                                            AES power domain must be HIGH immediately after reset.
+     0.00ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:81: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+   110.00ns INFO     cocotb.regression                  test_hetero_4core.TC001_aes_always_on_after_reset passed
+   110.00ns INFO     cocotb.regression                  running test_hetero_4core.TC002_not_both_off_after_reset (2/150)
+                                                            Neither cluster shall be simultaneously OFF right after reset.
+   230.00ns INFO     cocotb.regression                  test_hetero_4core.TC002_not_both_off_after_reset passed
+   230.00ns INFO     cocotb.regression                  running test_hetero_4core.TC003_aes_on_during_run_cool (3/150)
+                                                            AES stays ON over 200 cycles at nominal temperature.
+  2350.00ns INFO     cocotb.regression                  test_hetero_4core.TC003_aes_on_during_run_cool passed
+  2350.00ns INFO     cocotb.regression                  running test_hetero_4core.TC004_aes_on_during_thermal_stress (4/150)
+                                                            AES stays ON even when P-Core is thermally hot.
+  5470.00ns INFO     cocotb.regression                  test_hetero_4core.TC004_aes_on_during_thermal_stress passed
+  5470.00ns INFO     cocotb.regression                  running test_hetero_4core.TC005_invariant_after_one_window (5/150)
+                                                            Invariant holds after exactly one feature window fires.
+  6330.00ns INFO     cocotb.regression                  test_hetero_4core.TC005_invariant_after_one_window passed
+  6330.00ns INFO     cocotb.regression                  running test_hetero_4core.TC006_invariant_after_five_windows (6/150)
+                                                            Invariant holds after five consecutive windows.
+ 10150.00ns INFO     cocotb.regression                  test_hetero_4core.TC006_invariant_after_five_windows passed
+ 10150.00ns INFO     cocotb.regression                  running test_hetero_4core.TC007_l2_retain_only_when_both_off (7/150)
+                                                            L2 retention must be 1 only if both clusters are off (logically impossible in this RTL → always 0).
+ 12270.01ns INFO     cocotb.regression                  test_hetero_4core.TC007_l2_retain_only_when_both_off passed
+ 12270.01ns INFO     cocotb.regression                  running test_hetero_4core.TC008_mig_state_valid_range_warm (8/150)
+                                                            Migration state always in {0,1,2,3} at warm temperature.
+ 19390.01ns INFO     cocotb.regression                  test_hetero_4core.TC008_mig_state_valid_range_warm passed
+ 19390.01ns INFO     cocotb.regression                  running test_hetero_4core.TC009_mig_state_valid_range_hot (9/150)
+                                                            Migration state always in {0,1,2,3} at hot temperature.
+ 26510.01ns INFO     cocotb.regression                  test_hetero_4core.TC009_mig_state_valid_range_hot passed
+ 26510.01ns INFO     cocotb.regression                  running test_hetero_4core.TC010_pd_signals_binary (10/150)
+                                                            All power-domain signals must be strictly 0 or 1.
+ 29630.01ns INFO     cocotb.regression                  test_hetero_4core.TC010_pd_signals_binary passed
+ 29630.01ns INFO     cocotb.regression                  running test_hetero_4core.TC011_reset_clears_migration (11/150)
+                                                            Re-applying reset brings system back to E-Core (e_active=1).
+ 33820.01ns INFO     cocotb.regression                  test_hetero_4core.TC011_reset_clears_migration passed
+ 33820.01ns INFO     cocotb.regression                  running test_hetero_4core.TC012_aes_on_across_reset (12/150)
+                                                            AES domain ON survives multiple reset cycles.
+ 34120.01ns INFO     cocotb.regression                  test_hetero_4core.TC012_aes_on_across_reset passed
+ 34120.01ns INFO     cocotb.regression                  running test_hetero_4core.TC013_invariant_50_random_snapshots (13/150)
+                                                            Sample outputs at 50 random points — invariant must hold at each.
+ 66950.01ns INFO     cocotb.regression                  test_hetero_4core.TC013_invariant_50_random_snapshots passed
+ 66950.01ns INFO     cocotb.regression                  running test_hetero_4core.TC014_pd_pcore_ecore_mutually_exclusive_mostly (14/150)
+                                                            After a window fires the active core should be either P xor E
+ 69070.01ns INFO     cocotb.regression                  test_hetero_4core.TC014_pd_pcore_ecore_mutually_exclusive_mostly passed
+ 69070.01ns INFO     cocotb.regression                  running test_hetero_4core.TC015_aes_stable_1000_cycles (15/150)
+                                                            AES remains on for 1000 consecutive cycles.
+ 79190.01ns INFO     cocotb.regression                  test_hetero_4core.TC015_aes_stable_1000_cycles passed
+ 79190.01ns INFO     cocotb.regression                  running test_hetero_4core.TC016_invariant_boundary_therm_112 (16/150)
+                                                            Boundary: therm_pcore exactly at block threshold (112).
+ 81310.01ns INFO     cocotb.regression                  test_hetero_4core.TC016_invariant_boundary_therm_112 passed
+ 81310.01ns INFO     cocotb.regression                  running test_hetero_4core.TC017_invariant_boundary_therm_113 (17/150)
+                                                            Boundary: therm_pcore one above block threshold (113).
+ 83430.02ns INFO     cocotb.regression                  test_hetero_4core.TC017_invariant_boundary_therm_113 passed
+ 83430.02ns INFO     cocotb.regression                  running test_hetero_4core.TC018_invariant_therm_min (18/150)
+                                                            Minimum thermal values — invariant holds.
+ 85550.02ns INFO     cocotb.regression                  test_hetero_4core.TC018_invariant_therm_min passed
+ 85550.02ns INFO     cocotb.regression                  running test_hetero_4core.TC019_invariant_therm_max (19/150)
+                                                            Maximum (255) thermal values — invariant holds.
+ 87670.02ns INFO     cocotb.regression                  test_hetero_4core.TC019_invariant_therm_max passed
+ 87670.02ns INFO     cocotb.regression                  running test_hetero_4core.TC020_mig_state_never_unknown_500cyc (20/150)
+                                                            migration_state must never be X/Z over 500 cycles of toggle.
+ 92790.02ns INFO     cocotb.regression                  test_hetero_4core.TC020_mig_state_never_unknown_500cyc passed
+ 92790.02ns INFO     cocotb.regression                  running test_hetero_4core.TC021_thermal_block_suppresses_pcore_hot119 (21/150)
+                                                            therm_pcore=119 (headroom=1) → thermal block → P-Core must NOT be active.
+ 96910.02ns INFO     cocotb.regression                  test_hetero_4core.TC021_thermal_block_suppresses_pcore_hot119 passed
+ 96910.02ns INFO     cocotb.regression                  running test_hetero_4core.TC022_thermal_block_suppresses_pcore_hot120 (22/150)
+                                                            therm_pcore=120 (at throttle) → P-Core must NOT be active.
+101030.02ns INFO     cocotb.regression                  test_hetero_4core.TC022_thermal_block_suppresses_pcore_hot120 passed
+101030.02ns INFO     cocotb.regression                  running test_hetero_4core.TC023_thermal_block_ecore_stays_on_hot (23/150)
+                                                            When P-Core thermally blocked, E-Core must be active.
+105150.02ns INFO     cocotb.regression                  test_hetero_4core.TC023_thermal_block_ecore_stays_on_hot passed
+105150.02ns INFO     cocotb.regression                  running test_hetero_4core.TC024_thermal_block_at_118 (24/150)
+                                                            therm_pcore=118, headroom=2 < THERM_MARGIN(8) → still blocked.
+109270.02ns INFO     cocotb.regression                  test_hetero_4core.TC024_thermal_block_at_118 passed
+109270.02ns INFO     cocotb.regression                  running test_hetero_4core.TC025_thermal_block_at_115 (25/150)
+                                                            therm_pcore=115, headroom=5 < THERM_MARGIN(8) → blocked.
+113390.02ns INFO     cocotb.regression                  test_hetero_4core.TC025_thermal_block_at_115 passed
+113390.02ns INFO     cocotb.regression                  running test_hetero_4core.TC026_no_thermal_block_at_100 (26/150)
+                                                            therm_pcore=100 (headroom=20 > 8) → P-Core can be activated if workload demands.
+117510.02ns INFO     cocotb.regression                  test_hetero_4core.TC026_no_thermal_block_at_100 passed
+117510.02ns INFO     cocotb.regression                  running test_hetero_4core.TC027_no_thermal_block_at_80 (27/150)
+                                                            therm_pcore=80 (cool) → thermal block definitely not active.
+121630.03ns INFO     cocotb.regression                  test_hetero_4core.TC027_no_thermal_block_at_80 passed
+121630.03ns INFO     cocotb.regression                  running test_hetero_4core.TC028_ecore_therm_high_doesnt_block_pcore (28/150)
+                                                            High E-Core temperature alone should not block P-Core.
+125750.03ns INFO     cocotb.regression                  test_hetero_4core.TC028_ecore_therm_high_doesnt_block_pcore passed
+125750.03ns INFO     cocotb.regression                  running test_hetero_4core.TC029_thermal_sweep_105_to_119 (29/150)
+                                                            Sweep P-Core temp from 105→119 in steps of 1; confirm block above THERM_BLOCK.
+140870.03ns INFO     cocotb.regression                  test_hetero_4core.TC029_thermal_sweep_105_to_119 passed
+140870.03ns INFO     cocotb.regression                  running test_hetero_4core.TC030_thermal_sweep_below_block (30/150)
+                                                            Sweep P-Core temp 50→111 — all below block threshold, invariant always holds.
+151390.03ns INFO     cocotb.regression                  test_hetero_4core.TC030_thermal_sweep_below_block passed
+151390.03ns INFO     cocotb.regression                  running test_hetero_4core.TC031_thermal_recovery_p_to_e_back_to_p (31/150)
+                                                            Cool → P-Core may activate.
+160510.03ns INFO     cocotb.regression                  test_hetero_4core.TC031_thermal_recovery_p_to_e_back_to_p passed
+160510.03ns INFO     cocotb.regression                  running test_hetero_4core.TC032_thermal_block_immediate_after_window (32/150)
+                                                            Within one window after therm goes hot, P-Core must be off.
+162930.03ns INFO     cocotb.regression                  test_hetero_4core.TC032_thermal_block_immediate_after_window passed
+162930.03ns INFO     cocotb.regression                  running test_hetero_4core.TC033_therm_exactly_112 (33/150)
+                                                            therm_pcore=112: headroom=8 which equals THERM_MARGIN — boundary exact.
+167050.03ns INFO     cocotb.regression                  test_hetero_4core.TC033_therm_exactly_112 passed
+167050.03ns INFO     cocotb.regression                  running test_hetero_4core.TC034_both_thermals_max (34/150)
+                                                            Both sensors at 255 — thermal block active, E-Core must run.
+170170.03ns INFO     cocotb.regression                  test_hetero_4core.TC034_both_thermals_max passed
+170170.03ns INFO     cocotb.regression                  running test_hetero_4core.TC035_ecore_active_flag_hot_stable (35/150)
+                                                            E-Core pd_ecore_en remains stable=1 for 200 cycles while P blocked.
+172290.03ns INFO     cocotb.regression                  test_hetero_4core.TC035_ecore_active_flag_hot_stable passed
+172290.03ns INFO     cocotb.regression                  running test_hetero_4core.TC036_aes_unaffected_by_thermal (36/150)
+                                                            AES power domain on regardless of thermal state.
+173810.04ns INFO     cocotb.regression                  test_hetero_4core.TC036_aes_unaffected_by_thermal passed
+173810.04ns INFO     cocotb.regression                  running test_hetero_4core.TC037_mig_to_e_when_thermally_blocked (37/150)
+                                                            When P-Core thermally blocked, migration_state should be STAY_E(0) or TO_E(3).
+177930.04ns INFO     cocotb.regression                  test_hetero_4core.TC037_mig_to_e_when_thermally_blocked passed
+177930.04ns INFO     cocotb.regression                  running test_hetero_4core.TC038_mig_state_to_e_when_entering_hot (38/150)
+                                                            Transition from cool to hot should trigger MIG_TO_E or STAY_E.
+181550.04ns INFO     cocotb.regression                  test_hetero_4core.TC038_mig_state_to_e_when_entering_hot passed
+181550.04ns INFO     cocotb.regression                  running test_hetero_4core.TC039_ecore_therm_ignored_for_block_logic (39/150)
+                                                            E-Core temperature alone (high) doesn't trigger thermal block on P-Core.
+184670.04ns INFO     cocotb.regression                  test_hetero_4core.TC039_ecore_therm_ignored_for_block_logic passed
+184670.04ns INFO     cocotb.regression                  running test_hetero_4core.TC040_10x_thermal_toggle_invariant (40/150)
+                                                            Toggle P-Core temp between 60 and 119 ten times — invariant holds each time.
+202790.04ns INFO     cocotb.regression                  test_hetero_4core.TC040_10x_thermal_toggle_invariant passed
+202790.04ns INFO     cocotb.regression                  running test_hetero_4core.TC041_therm_111_does_not_block (41/150)
+                                                            therm_pcore=111: headroom=9 > THERM_MARGIN(8) → no block.
+205910.04ns INFO     cocotb.regression                  test_hetero_4core.TC041_therm_111_does_not_block passed
+205910.04ns INFO     cocotb.regression                  running test_hetero_4core.TC042_therm_113_does_block (42/150)
+                                                            therm_pcore=113: headroom=7 < THERM_MARGIN(8) → block.
+209030.04ns INFO     cocotb.regression                  test_hetero_4core.TC042_therm_113_does_block passed
+209030.04ns INFO     cocotb.regression                  running test_hetero_4core.TC043_thermal_block_no_affect_on_l2_retain (43/150)
+                                                            Even under thermal block, L2 retention should be 0 (E-Core is active).
+212150.04ns INFO     cocotb.regression                  test_hetero_4core.TC043_thermal_block_no_affect_on_l2_retain passed
+212150.04ns INFO     cocotb.regression                  running test_hetero_4core.TC044_fast_thermal_spike_invariant (44/150)
+                                                            Very fast thermal spike (1 cycle at 255) doesn't break invariant.
+214080.04ns INFO     cocotb.regression                  test_hetero_4core.TC044_fast_thermal_spike_invariant passed
+214080.04ns INFO     cocotb.regression                  running test_hetero_4core.TC045_thermal_ramp_up (45/150)
+                                                            Ramp P-Core temp from 50 to 120 in steps of 5 — invariant at each step.
+226200.04ns INFO     cocotb.regression                  test_hetero_4core.TC045_thermal_ramp_up passed
+226200.04ns INFO     cocotb.regression                  running test_hetero_4core.TC046_initial_state_ecore_active (46/150)
+                                                            After reset, E-Core cluster must be the default active domain.
+226320.05ns INFO     cocotb.regression                  test_hetero_4core.TC046_initial_state_ecore_active passed
+226320.05ns INFO     cocotb.regression                  running test_hetero_4core.TC047_migration_state_reset_value (47/150)
+                                                            Migration state should reset to STAY_E (0).
+226440.05ns INFO     cocotb.regression                  test_hetero_4core.TC047_migration_state_reset_value passed
+226440.05ns INFO     cocotb.regression                  running test_hetero_4core.TC048_window_fires_within_80_cycles (48/150)
+                                                            At least one window must have fired by 80 cycles (window=64 + latency).
+227360.05ns INFO     cocotb.regression                  test_hetero_4core.TC048_window_fires_within_80_cycles passed
+227360.05ns INFO     cocotb.regression                  running test_hetero_4core.TC049_mig_state_changes_over_time (49/150)
+                                                            Run 1000 cycles and confirm mig_state is not permanently stuck at reset value.
+237480.05ns INFO     cocotb.regression                  test_hetero_4core.TC049_mig_state_changes_over_time passed
+237480.05ns INFO     cocotb.regression                  running test_hetero_4core.TC050_cool_long_run_valid_state (50/150)
+                                                            1000 cycles at cool temperature — valid final state.
+247600.05ns INFO     cocotb.regression                  test_hetero_4core.TC050_cool_long_run_valid_state passed
+247600.05ns INFO     cocotb.regression                  running test_hetero_4core.TC051_hot_long_run_pcore_off (51/150)
+                                                            1000 cycles at hot temperature — P-Core must be off.
+257720.05ns INFO     cocotb.regression                  test_hetero_4core.TC051_hot_long_run_pcore_off passed
+257720.05ns INFO     cocotb.regression                  running test_hetero_4core.TC052_mig_state_stability_constant_input (52/150)
+                                                            Under constant thermal input, mig_state must stabilise (not oscillate forever).
+263840.05ns INFO     cocotb.regression                  test_hetero_4core.TC052_mig_state_stability_constant_input passed
+263840.05ns INFO     cocotb.regression                  running test_hetero_4core.TC053_multiple_windows_consistent (53/150)
+                                                            Check that 5 back-to-back windows give consistent state at constant input.
+267660.05ns INFO     cocotb.regression                  test_hetero_4core.TC053_multiple_windows_consistent passed
+267660.05ns INFO     cocotb.regression                  running test_hetero_4core.TC054_ecore_active_reflects_mig_stay_e (54/150)
+                                                            When mig_state is STAY_E(0), E-Core must be active.
+271780.05ns INFO     cocotb.regression                  test_hetero_4core.TC054_ecore_active_reflects_mig_stay_e passed
+271780.05ns INFO     cocotb.regression                  running test_hetero_4core.TC055_pcore_active_reflects_mig_stay_p (55/150)
+                                                            When mig_state is STAY_P(2), P-Core must be active.
+277900.05ns INFO     cocotb.regression                  test_hetero_4core.TC055_pcore_active_reflects_mig_stay_p passed
+277900.05ns INFO     cocotb.regression                  running test_hetero_4core.TC056_no_pcore_on_to_e_state (56/150)
+                                                            When mig_state=TO_E(3), P-Core must be off.
+281020.05ns INFO     cocotb.regression                  test_hetero_4core.TC056_no_pcore_on_to_e_state passed
+281020.05ns INFO     cocotb.regression                  running test_hetero_4core.TC057_no_ecore_off_on_to_p_state (57/150)
+                                                            When mig_state=TO_P(1), transition in progress — E-Core may turn off after.
+285140.06ns INFO     cocotb.regression                  test_hetero_4core.TC057_no_ecore_off_on_to_p_state passed
+285140.06ns INFO     cocotb.regression                  running test_hetero_4core.TC058_hysteresis_prevents_rapid_toggling (58/150)
+                                                            Toggle therm every 30 cycles — hysteresis should prevent state thrashing.
+291260.06ns INFO     cocotb.regression                  test_hetero_4core.TC058_hysteresis_prevents_rapid_toggling passed
+291260.06ns INFO     cocotb.regression                  running test_hetero_4core.TC059_strong_signal_overrides_hysteresis (59/150)
+                                                            A very strong perceptron signal (extreme temperature) should override hysteresis lock.
+296880.06ns INFO     cocotb.regression                  test_hetero_4core.TC059_strong_signal_overrides_hysteresis passed
+296880.06ns INFO     cocotb.regression                  running test_hetero_4core.TC060_migration_consistency_10_runs (60/150)
+                                                            Run the same sequence 2x — same final state (deterministic RTL).
+303240.06ns INFO     cocotb.regression                  test_hetero_4core.TC060_migration_consistency_10_runs passed
+303240.06ns INFO     cocotb.regression                  running test_hetero_4core.TC061_mig_state_valid_all_256_thermals (61/150)
+                                                            Sweep all therm_pcore values 0–255 in 8 steps — always valid state.
+312960.06ns INFO     cocotb.regression                  test_hetero_4core.TC061_mig_state_valid_all_256_thermals passed
+312960.06ns INFO     cocotb.regression                  running test_hetero_4core.TC062_ecore_therm_sweep_invariant (62/150)
+                                                            Sweep E-Core thermal 0–255 — invariant holds throughout.
+317880.06ns INFO     cocotb.regression                  test_hetero_4core.TC062_ecore_therm_sweep_invariant passed
+317880.06ns INFO     cocotb.regression                  running test_hetero_4core.TC063_pd_ecore_on_at_reset_plus_1 (63/150)
+                                                            1 cycle after reset release, E-Core must already be flagged active.
+317880.06ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:655: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+317940.06ns INFO     cocotb.regression                  test_hetero_4core.TC063_pd_ecore_on_at_reset_plus_1 passed
+317940.06ns INFO     cocotb.regression                  running test_hetero_4core.TC064_no_glitch_on_pd_aes_en (64/150)
+                                                            pd_aes_en must never go low — monitor all edges for 500 cycles.
+323055.06ns INFO     cocotb.regression                  test_hetero_4core.TC064_no_glitch_on_pd_aes_en passed
+323055.06ns INFO     cocotb.regression                  running test_hetero_4core.TC065_mig_state_at_window_boundaries (65/150)
+                                                            Sample mig_state exactly at every 64-cycle boundary — must always be valid.
+332765.06ns INFO     cocotb.regression                  test_hetero_4core.TC065_mig_state_at_window_boundaries passed
+332765.06ns INFO     cocotb.regression                  running test_hetero_4core.TC066_paired_pd_signals_cross_check (66/150)
+                                                            If pd_pcore_en=1 then pd_ecore_en should be 0 (after migration settles).
+337885.07ns INFO     cocotb.regression                  test_hetero_4core.TC066_paired_pd_signals_cross_check passed
+337885.07ns INFO     cocotb.regression                  running test_hetero_4core.TC067_thermal_transition_no_both_off (67/150)
+                                                            During a thermal transition, never allow both clusters off simultaneously.
+340005.07ns INFO     cocotb.regression                  test_hetero_4core.TC067_thermal_transition_no_both_off passed
+340005.07ns INFO     cocotb.regression                  running test_hetero_4core.TC068_feature_window_period_check (68/150)
+                                                            Confirm at least 3 feature windows fire within 250 cycles.
+342625.07ns INFO     cocotb.regression                  test_hetero_4core.TC068_feature_window_period_check passed
+342625.07ns INFO     cocotb.regression                  running test_hetero_4core.TC069_mig_state_reachable_stay_e (69/150)
+                                                            Demonstrate STAY_E(0) state is reachable.
+347745.07ns INFO     cocotb.regression                  test_hetero_4core.TC069_mig_state_reachable_stay_e passed
+347745.07ns INFO     cocotb.regression                  running test_hetero_4core.TC070_gradual_cooling_no_invariant_break (70/150)
+                                                            Slowly cool P-Core from 119 to 50 — invariant at each step.
+357865.07ns INFO     cocotb.regression                  test_hetero_4core.TC070_gradual_cooling_no_invariant_break passed
+357865.07ns INFO     cocotb.regression                  running test_hetero_4core.TC071_gradual_heating_no_invariant_break (71/150)
+                                                            Slowly heat P-Core from 50 to 119 — invariant at each step.
+364985.07ns INFO     cocotb.regression                  test_hetero_4core.TC071_gradual_heating_no_invariant_break passed
+364985.07ns INFO     cocotb.regression                  running test_hetero_4core.TC072_aes_on_during_migration_event (72/150)
+                                                            AES must stay ON exactly during a migration event (transition window).
+366905.07ns INFO     cocotb.regression                  test_hetero_4core.TC072_aes_on_during_migration_event passed
+366905.07ns INFO     cocotb.regression                  running test_hetero_4core.TC073_randomised_100_invariant_checks (73/150)
+                                                            100 random (therm_p, therm_e, cycles) combinations — invariant at each.
+413495.07ns INFO     cocotb.regression                  test_hetero_4core.TC073_randomised_100_invariant_checks passed
+413495.07ns INFO     cocotb.regression                  running test_hetero_4core.TC074_migration_state_not_x_after_reset (74/150)
+                                                            migration_state should not be X immediately after reset deassert.
+413495.07ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:771: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+413585.07ns INFO     cocotb.regression                  test_hetero_4core.TC074_migration_state_not_x_after_reset passed
+413585.07ns INFO     cocotb.regression                  running test_hetero_4core.TC075_l2_retain_never_1_during_active_run (75/150)
+                                                            L2 retention pin stays 0 throughout a 500-cycle active run.
+418705.07ns INFO     cocotb.regression                  test_hetero_4core.TC075_l2_retain_never_1_during_active_run passed
+418705.07ns INFO     cocotb.regression                  running test_hetero_4core.TC076_mig_state_4windows_hot (76/150)
+                                                            Over 4 windows under hot conditions, mig_state stays in {STAY_E, TO_E}.
+421785.08ns INFO     cocotb.regression                  test_hetero_4core.TC076_mig_state_4windows_hot passed
+421785.08ns INFO     cocotb.regression                  running test_hetero_4core.TC077_power_gating_ecore_default (77/150)
+                                                            pd_pcore_en must be 0 right after reset (P-Core power-gated by default).
+421905.08ns INFO     cocotb.regression                  test_hetero_4core.TC077_power_gating_ecore_default passed
+421905.08ns INFO     cocotb.regression                  running test_hetero_4core.TC078_multiple_reset_invariant (78/150)
+                                                            5 reset cycles interspersed with short runs — invariant holds after each reset.
+427375.08ns INFO     cocotb.regression                  test_hetero_4core.TC078_multiple_reset_invariant passed
+427375.08ns INFO     cocotb.regression                  running test_hetero_4core.TC079_perceptron_not_all_zeros (79/150)
+                                                            After 10 windows, migration state should not be permanently 0 for all thermals.
+434895.08ns INFO     cocotb.regression                  test_hetero_4core.TC079_perceptron_not_all_zeros passed
+434895.08ns INFO     cocotb.regression                  running test_hetero_4core.TC080_no_deadlock_2000_cycles (80/150)
+                                                            System must not deadlock or hang over 2000 cycles at nominal conditions.
+455015.08ns INFO     cocotb.regression                  test_hetero_4core.TC080_no_deadlock_2000_cycles passed
+455015.08ns INFO     cocotb.regression                  running test_hetero_4core.TC081_reset_during_window (81/150)
+                                                            Assert reset exactly during a feature window evaluation (cycle 60) — no crash.
+455015.08ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:846: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+455895.08ns INFO     cocotb.regression                  test_hetero_4core.TC081_reset_during_window passed
+455895.08ns INFO     cocotb.regression                  running test_hetero_4core.TC082_zero_thermal_reset (82/150)
+                                                            Start with both thermals=0 — no crash, valid state.
+455895.08ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:862: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+456955.08ns INFO     cocotb.regression                  test_hetero_4core.TC082_zero_thermal_reset passed
+456955.08ns INFO     cocotb.regression                  running test_hetero_4core.TC083_therm_change_during_reset (83/150)
+                                                            Change thermals while reset is asserted — state after deassert is valid.
+456955.08ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:874: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+458015.08ns INFO     cocotb.regression                  test_hetero_4core.TC083_therm_change_during_reset passed
+458015.08ns INFO     cocotb.regression                  running test_hetero_4core.TC084_single_cycle_reset (84/150)
+                                                            1-cycle reset pulse — system recovers.
+458015.08ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:888: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+459025.08ns INFO     cocotb.regression                  test_hetero_4core.TC084_single_cycle_reset passed
+459025.08ns INFO     cocotb.regression                  running test_hetero_4core.TC085_long_reset_50_cycles (85/150)
+                                                            50-cycle reset then run 200 cycles — invariant holds.
+459025.08ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:900: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+461525.08ns INFO     cocotb.regression                  test_hetero_4core.TC085_long_reset_50_cycles passed
+461525.08ns INFO     cocotb.regression                  running test_hetero_4core.TC086_rst_high_pd_signals_valid (86/150)
+                                                            While rst=1, pd_aes_en should still be 1 (always-on domain).
+461525.09ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:912: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+461575.09ns INFO     cocotb.regression                  test_hetero_4core.TC086_rst_high_pd_signals_valid passed
+461575.09ns INFO     cocotb.regression                  running test_hetero_4core.TC087_ecore_active_at_reset_high (87/150)
+                                                            While rst=1, E-Core domain should be 1 (reset default).
+461575.09ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:922: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+461625.09ns INFO     cocotb.regression                  test_hetero_4core.TC087_ecore_active_at_reset_high passed
+461625.09ns INFO     cocotb.regression                  running test_hetero_4core.TC088_pcore_off_at_reset_high (88/150)
+                                                            While rst=1, P-Core domain should be 0 (reset default).
+461625.09ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:932: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+461675.09ns INFO     cocotb.regression                  test_hetero_4core.TC088_pcore_off_at_reset_high passed
+461675.09ns INFO     cocotb.regression                  running test_hetero_4core.TC089_repeated_minimal_reset (89/150)
+                                                            100 minimal (2-cycle) resets in succession — system survives.
+461675.09ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:942: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+465675.09ns INFO     cocotb.regression                  test_hetero_4core.TC089_repeated_minimal_reset passed
+465675.09ns INFO     cocotb.regression                  running test_hetero_4core.TC090_post_reset_mig_state_0 (90/150)
+                                                            After any reset, mig_state must be 0 (STAY_E).
+470885.09ns INFO     cocotb.regression                  test_hetero_4core.TC090_post_reset_mig_state_0 passed
+470885.09ns INFO     cocotb.regression                  running test_hetero_4core.TC091_cool_p (91/150)
+492845.09ns INFO     cocotb.regression                  test_hetero_4core.TC091_cool_p passed
+492845.09ns INFO     cocotb.regression                  running test_hetero_4core.TC092_near_block_p (92/150)
+512575.09ns INFO     cocotb.regression                  test_hetero_4core.TC092_near_block_p passed
+512575.09ns INFO     cocotb.regression                  running test_hetero_4core.TC093_hot_p (93/150)
+534185.09ns INFO     cocotb.regression                  test_hetero_4core.TC093_hot_p passed
+534185.09ns INFO     cocotb.regression                  running test_hetero_4core.TC094_hot_e (94/150)
+552835.09ns INFO     cocotb.regression                  test_hetero_4core.TC094_hot_e passed
+552835.09ns INFO     cocotb.regression                  running test_hetero_4core.TC095_both_hot (95/150)
+572565.09ns INFO     cocotb.regression                  test_hetero_4core.TC095_both_hot passed
+572565.09ns INFO     cocotb.regression                  running test_hetero_4core.TC096_short_bursts (96/150)
+576575.09ns INFO     cocotb.regression                  test_hetero_4core.TC096_short_bursts passed
+576575.09ns INFO     cocotb.regression                  running test_hetero_4core.TC097_long_bursts (97/150)
+651305.10ns INFO     cocotb.regression                  test_hetero_4core.TC097_long_bursts passed
+651305.10ns INFO     cocotb.regression                  running test_hetero_4core.TC098_window_aligned (98/150)
+669945.10ns INFO     cocotb.regression                  test_hetero_4core.TC098_window_aligned passed
+669945.10ns INFO     cocotb.regression                  running test_hetero_4core.TC099_tiny_bursts (99/150)
+670995.10ns INFO     cocotb.regression                  test_hetero_4core.TC099_tiny_bursts passed
+670995.10ns INFO     cocotb.regression                  running test_hetero_4core.TC100_threshold_zone (100/150)
+695715.10ns INFO     cocotb.regression                  test_hetero_4core.TC100_threshold_zone passed
+695715.10ns INFO     cocotb.regression                  running test_hetero_4core.TC101_cool_longrun (101/150)
+786385.10ns INFO     cocotb.regression                  test_hetero_4core.TC101_cool_longrun passed
+786385.10ns INFO     cocotb.regression                  running test_hetero_4core.TC102_hot_longrun (102/150)
+879005.10ns INFO     cocotb.regression                  test_hetero_4core.TC102_hot_longrun passed
+879005.10ns INFO     cocotb.regression                  running test_hetero_4core.TC103_exact_window (103/150)
+891925.10ns INFO     cocotb.regression                  test_hetero_4core.TC103_exact_window passed
+891925.10ns INFO     cocotb.regression                  running test_hetero_4core.TC104_mid_range (104/150)
+922345.10ns INFO     cocotb.regression                  test_hetero_4core.TC104_mid_range passed
+922345.10ns INFO     cocotb.regression                  running test_hetero_4core.TC105_very_cool (105/150)
+983945.10ns INFO     cocotb.regression                  test_hetero_4core.TC105_very_cool passed
+983945.10ns INFO     cocotb.regression                  running test_hetero_4core.TC106_just_above_blk (106/150)
+1024995.10ns INFO     cocotb.regression                  test_hetero_4core.TC106_just_above_blk passed
+1024995.10ns INFO     cocotb.regression                  running test_hetero_4core.TC107_cool_p_hot_e (107/150)
+1055765.11ns INFO     cocotb.regression                  test_hetero_4core.TC107_cool_p_hot_e passed
+1055765.11ns INFO     cocotb.regression                  running test_hetero_4core.TC108_half_window (108/150)
+1066425.11ns INFO     cocotb.regression                  test_hetero_4core.TC108_half_window passed
+1066425.11ns INFO     cocotb.regression                  running test_hetero_4core.TC109_warm_p (109/150)
+1108395.11ns INFO     cocotb.regression                  test_hetero_4core.TC109_warm_p passed
+1108395.11ns INFO     cocotb.regression                  running test_hetero_4core.TC110_cool_vlong (110/150)
+1230775.11ns INFO     cocotb.regression                  test_hetero_4core.TC110_cool_vlong passed
+1230775.11ns INFO     cocotb.regression                  running test_hetero_4core.TC111_hot_vlong (111/150)
+1361255.11ns INFO     cocotb.regression                  test_hetero_4core.TC111_hot_vlong passed
+1361255.11ns INFO     cocotb.regression                  running test_hetero_4core.TC112_nominal (112/150)
+1390965.11ns INFO     cocotb.regression                  test_hetero_4core.TC112_nominal passed
+1390965.11ns INFO     cocotb.regression                  running test_hetero_4core.TC113_very_cold (113/150)
+1434255.11ns INFO     cocotb.regression                  test_hetero_4core.TC113_very_cold passed
+1434255.11ns INFO     cocotb.regression                  running test_hetero_4core.TC114_extreme_hot (114/150)
+1478445.11ns INFO     cocotb.regression                  test_hetero_4core.TC114_extreme_hot passed
+1478445.11ns INFO     cocotb.regression                  running test_hetero_4core.TC115_full_random (115/150)
+1518705.11ns INFO     cocotb.regression                  test_hetero_4core.TC115_full_random passed
+1518705.11ns INFO     cocotb.regression                  running test_hetero_4core.TC116_stable_ecore_300_cycles (116/150)
+                                                             E-Core must stay stable for 300 cycles under hot thermal forcing.
+1521825.11ns INFO     cocotb.regression                  test_hetero_4core.TC116_stable_ecore_300_cycles passed
+1521825.11ns INFO     cocotb.regression                  running test_hetero_4core.TC117_pd_signals_no_glitch_cool (117/150)
+                                                             No glitch on any pd_* signal for 200 cycles at cool temp.
+1523945.12ns INFO     cocotb.regression                  test_hetero_4core.TC117_pd_signals_no_glitch_cool passed
+1523945.12ns INFO     cocotb.regression                  running test_hetero_4core.TC118_therm_sawtooth_pattern (118/150)
+                                                             Sawtooth: ramp up then instant drop, 5 times — invariant each time.
+1534565.12ns INFO     cocotb.regression                  test_hetero_4core.TC118_therm_sawtooth_pattern passed
+1534565.12ns INFO     cocotb.regression                  running test_hetero_4core.TC119_therm_square_wave (119/150)
+                                                             Square wave: alternate 60↔119 with period 128 cycles, 10 periods.
+1547485.12ns INFO     cocotb.regression                  test_hetero_4core.TC119_therm_square_wave passed
+1547485.12ns INFO     cocotb.regression                  running test_hetero_4core.TC120_therm_sinusoidal_approx (120/150)
+                                                             Approximate sinusoidal temperature variation — invariant always holds.
+1557605.12ns INFO     cocotb.regression                  test_hetero_4core.TC120_therm_sinusoidal_approx passed
+1557605.12ns INFO     cocotb.regression                  running test_hetero_4core.TC121_concurrent_max_min_thermal (121/150)
+                                                             P-Core max temp, E-Core min temp — valid state.
+1560725.12ns INFO     cocotb.regression                  test_hetero_4core.TC121_concurrent_max_min_thermal passed
+1560725.12ns INFO     cocotb.regression                  running test_hetero_4core.TC122_concurrent_min_max_thermal (122/150)
+                                                             P-Core min temp, E-Core max temp — valid state, P-Core should be allowed.
+1563845.12ns INFO     cocotb.regression                  test_hetero_4core.TC122_concurrent_min_max_thermal passed
+1563845.12ns INFO     cocotb.regression                  running test_hetero_4core.TC123_migration_state_sticky_hysteresis (123/150)
+                                                             Under hysteresis, state must not change for HYST_HOLD cycles after weak prediction.
+1571465.12ns INFO     cocotb.regression                  test_hetero_4core.TC123_migration_state_sticky_hysteresis passed
+1571465.12ns INFO     cocotb.regression                  running test_hetero_4core.TC124_ecore_on_before_pcore_on (124/150)
+                                                             From reset, E-Core must turn on before P-Core can ever turn on.
+1571465.12ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:1194: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                           cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+1571525.12ns INFO     cocotb.regression                  test_hetero_4core.TC124_ecore_on_before_pcore_on passed
+1571525.12ns INFO     cocotb.regression                  running test_hetero_4core.TC125_pd_aes_en_is_hardwired_1 (125/150)
+                                                             Verify pd_aes_en is effectively hardwired to 1 (always-on domain).
+1572145.12ns INFO     cocotb.regression                  test_hetero_4core.TC125_pd_aes_en_is_hardwired_1 passed
+1572145.12ns INFO     cocotb.regression                  running test_hetero_4core.TC126_l2_retain_logic (126/150)
+                                                             pd_l2_retain = ~(pd_pcore_en | pd_ecore_en). Verify this formula holds.
+1582265.12ns INFO     cocotb.regression                  test_hetero_4core.TC126_l2_retain_logic passed
+1582265.12ns INFO     cocotb.regression                  running test_hetero_4core.TC127_mig_state_thermally_forced_to_e (127/150)
+                                                             At therm_pcore=125, mig_state must be STAY_E or TO_E after 5 windows.
+1586085.13ns INFO     cocotb.regression                  test_hetero_4core.TC127_mig_state_thermally_forced_to_e passed
+1586085.13ns INFO     cocotb.regression                  running test_hetero_4core.TC128_all_pd_signals_sampled_100_cycles (128/150)
+                                                             Sample all 5 pd signals at every clock for 100 cycles — no X/Z.
+1587205.13ns INFO     cocotb.regression                  test_hetero_4core.TC128_all_pd_signals_sampled_100_cycles passed
+1587205.13ns INFO     cocotb.regression                  running test_hetero_4core.TC129_mig_state_consistent_across_identical_runs (129/150)
+                                                             Three identical stimulus runs must produce identical final mig_state.
+1599565.13ns INFO     cocotb.regression                  test_hetero_4core.TC129_mig_state_consistent_across_identical_runs passed
+1599565.13ns INFO     cocotb.regression                  running test_hetero_4core.TC130_boundary_therm_delta_8 (130/150)
+                                                             Boundary: feat_therm_delta exactly 8 (at THERM_MARGIN). Check no crash.
+1603685.13ns INFO     cocotb.regression                  test_hetero_4core.TC130_boundary_therm_delta_8 passed
+1603685.13ns INFO     cocotb.regression                  running test_hetero_4core.TC131_pd_pcore_and_ecore_not_both_1_after_window (131/150)
+                                                             After migration settles (10 windows), P and E must not both be 1.
+1611205.13ns INFO     cocotb.regression                  test_hetero_4core.TC131_pd_pcore_and_ecore_not_both_1_after_window passed
+1611205.13ns INFO     cocotb.regression                  running test_hetero_4core.TC132_ecore_stays_on_thermal_oscillation (132/150)
+                                                             Thermal oscillation around block boundary — E-Core stays on always.
+1620325.13ns INFO     cocotb.regression                  test_hetero_4core.TC132_ecore_stays_on_thermal_oscillation passed
+1620325.13ns INFO     cocotb.regression                  running test_hetero_4core.TC133_feature_extractor_branch_density (133/150)
+                                                             High-branch instructions loaded in imem — verify no crash in feature extractor.
+1623445.13ns INFO     cocotb.regression                  test_hetero_4core.TC133_feature_extractor_branch_density passed
+1623445.13ns INFO     cocotb.regression                  running test_hetero_4core.TC134_stress_5000_cycles (134/150)
+                                                             5000-cycle stress run at nominal temperature — no crash, invariant at end.
+1673565.13ns INFO     cocotb.regression                  test_hetero_4core.TC134_stress_5000_cycles passed
+1673565.13ns INFO     cocotb.regression                  running test_hetero_4core.TC135_stress_5000_cycles_hot (135/150)
+                                                             5000-cycle stress at hot temperature — P-Core off throughout end.
+1723685.13ns INFO     cocotb.regression                  test_hetero_4core.TC135_stress_5000_cycles_hot passed
+1723685.13ns INFO     cocotb.regression                  running test_hetero_4core.TC136_alternating_window_hot_cool (136/150)
+                                                             Alternate hot/cool every 64 cycles (exactly one window) for 20 iterations.
+1736605.14ns INFO     cocotb.regression                  test_hetero_4core.TC136_alternating_window_hot_cool passed
+1736605.14ns INFO     cocotb.regression                  running test_hetero_4core.TC137_no_change_to_aes_en_ever (137/150)
+                                                             Over any run, pd_aes_en must never transition 1→0.
+1744725.14ns INFO     cocotb.regression                  test_hetero_4core.TC137_no_change_to_aes_en_ever passed
+1744725.14ns INFO     cocotb.regression                  running test_hetero_4core.TC138_output_stable_during_reset_high (138/150)
+                                                             Outputs must be stable (not change erratically) while rst is asserted.
+1744725.14ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:1336: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                           cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+1744805.14ns INFO     cocotb.regression                  test_hetero_4core.TC138_output_stable_during_reset_high passed
+1744805.14ns INFO     cocotb.regression                  running test_hetero_4core.TC139_therm_step_response (139/150)
+                                                             Step change in therm_pcore from 70→119: check state after 2 windows.
+1749405.14ns INFO     cocotb.regression                  test_hetero_4core.TC139_therm_step_response passed
+1749405.14ns INFO     cocotb.regression                  running test_hetero_4core.TC140_therm_step_cool_recovery (140/150)
+                                                             Step change from 119→70: check invariant is maintained after recovery.
+1755525.14ns INFO     cocotb.regression                  test_hetero_4core.TC140_therm_step_cool_recovery passed
+1755525.14ns INFO     cocotb.regression                  running test_hetero_4core.TC141_check_mig_state_bits_individually (141/150)
+                                                             Check each bit of migration_state independently at cool and hot conditions.
+1759645.14ns INFO     cocotb.regression                  test_hetero_4core.TC141_check_mig_state_bits_individually passed
+1759645.14ns INFO     cocotb.regression                  running test_hetero_4core.TC142_no_metastability_50_window_transitions (142/150)
+                                                             50 window transitions — migration_state never X/Z.
+1791765.14ns INFO     cocotb.regression                  test_hetero_4core.TC142_no_metastability_50_window_transitions passed
+1791765.14ns INFO     cocotb.regression                  running test_hetero_4core.TC143_semaphore_no_effect_on_pd (143/150)
+                                                             Semaphore arbitration should not affect power domain signals.
+1793885.14ns INFO     cocotb.regression                  test_hetero_4core.TC143_semaphore_no_effect_on_pd passed
+1793885.14ns INFO     cocotb.regression                  running test_hetero_4core.TC144_ecore_pd_always_1_under_thermal_block (144/150)
+                                                             Under continuous thermal block (therm_p=119), E-Core pd must be 1 always.
+1797005.14ns INFO     cocotb.regression                  test_hetero_4core.TC144_ecore_pd_always_1_under_thermal_block passed
+1797005.14ns INFO     cocotb.regression                  running test_hetero_4core.TC145_migration_state_changes_max_3_per_10_windows_cool (145/150)
+                                                             At stable cool temperature, migration should not change more than 3× in 10 windows.
+1806525.14ns INFO     cocotb.regression                  test_hetero_4core.TC145_migration_state_changes_max_3_per_10_windows_cool passed
+1806525.14ns INFO     cocotb.regression                  running test_hetero_4core.TC146_pd_l2_retain_follows_formula (146/150)
+                                                             pd_l2_retain = NOT(pd_pcore_en OR pd_ecore_en) — sampled 200 times.
+1808645.15ns INFO     cocotb.regression                  test_hetero_4core.TC146_pd_l2_retain_follows_formula passed
+1808645.15ns INFO     cocotb.regression                  running test_hetero_4core.TC147_all_outputs_valid_start_to_finish (147/150)
+                                                             From cycle 1 to 500, all outputs must be binary-resolvable.
+1808645.15ns WARNING  py.warnings                        /home/ubuntu/OpenLane/designs/hetero_4core/sim/test_hetero_4core.py:1441: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                           cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, units="ns").start())
+1813695.15ns INFO     cocotb.regression                  test_hetero_4core.TC147_all_outputs_valid_start_to_finish passed
+1813695.15ns INFO     cocotb.regression                  running test_hetero_4core.TC148_final_state_after_hot_cool_alternation (148/150)
+                                                             After 20 hot→cool cycles, final state must satisfy invariant.
+1845815.15ns INFO     cocotb.regression                  test_hetero_4core.TC148_final_state_after_hot_cool_alternation passed
+1845815.15ns INFO     cocotb.regression                  running test_hetero_4core.TC149_mig_state_reachable_to_e (149/150)
+                                                             TO_E(3) or STAY_E(0) must be reachable by applying hot temperature.
+1850935.15ns INFO     cocotb.regression                  test_hetero_4core.TC149_mig_state_reachable_to_e passed
+1850935.15ns INFO     cocotb.regression                  running test_hetero_4core.TC150_comprehensive_final_check (150/150)
+                                                             Final comprehensive test:
+1872415.15ns INFO     test                               TC150 PASSED — All 5 phases completed successfully
+1872415.15ns INFO     cocotb.regression                  test_hetero_4core.TC150_comprehensive_final_check passed
+1872415.15ns INFO     cocotb.regression                  ***********************************************************************************************************************************
+                                                         ** TEST                                                                       STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ***********************************************************************************************************************************
+                                                         ** test_hetero_4core.TC001_aes_always_on_after_reset                           PASS         110.00           0.03       4090.88  **
+                                                         ** test_hetero_4core.TC002_not_both_off_after_reset                            PASS         120.00           0.03       3929.09  **
+                                                         ** test_hetero_4core.TC003_aes_on_during_run_cool                              PASS        2120.00           0.04      47664.84  **
+                                                         ** test_hetero_4core.TC004_aes_on_during_thermal_stress                        PASS        3120.00           0.05      60663.31  **
+                                                         ** test_hetero_4core.TC005_invariant_after_one_window                          PASS         860.00           0.03      26011.94  **
+                                                         ** test_hetero_4core.TC006_invariant_after_five_windows                        PASS        3820.00           0.06      60279.99  **
+                                                         ** test_hetero_4core.TC007_l2_retain_only_when_both_off                        PASS        2120.00           0.04      48538.56  **
+                                                         ** test_hetero_4core.TC008_mig_state_valid_range_warm                          PASS        7120.00           0.07      98707.77  **
+                                                         ** test_hetero_4core.TC009_mig_state_valid_range_hot                           PASS        7120.00           0.09      82568.69  **
+                                                         ** test_hetero_4core.TC010_pd_signals_binary                                   PASS        3120.00           0.05      68432.95  **
+                                                         ** test_hetero_4core.TC011_reset_clears_migration                              PASS        4190.00           0.07      55875.87  **
+                                                         ** test_hetero_4core.TC012_aes_on_across_reset                                 PASS         300.00           0.06       5229.57  **
+                                                         ** test_hetero_4core.TC013_invariant_50_random_snapshots                       PASS       32830.00           0.28     117113.09  **
+                                                         ** test_hetero_4core.TC014_pd_pcore_ecore_mutually_exclusive_mostly            PASS        2120.00           0.04      58533.01  **
+                                                         ** test_hetero_4core.TC015_aes_stable_1000_cycles                              PASS       10120.00           0.11      92641.43  **
+                                                         ** test_hetero_4core.TC016_invariant_boundary_therm_112                        PASS        2120.00           0.07      31688.06  **
+                                                         ** test_hetero_4core.TC017_invariant_boundary_therm_113                        PASS        2120.00           0.04      56802.53  **
+                                                         ** test_hetero_4core.TC018_invariant_therm_min                                 PASS        2120.00           0.05      46434.72  **
+                                                         ** test_hetero_4core.TC019_invariant_therm_max                                 PASS        2120.00           0.04      52110.18  **
+                                                         ** test_hetero_4core.TC020_mig_state_never_unknown_500cyc                      PASS        5120.00           0.07      78196.09  **
+                                                         ** test_hetero_4core.TC021_thermal_block_suppresses_pcore_hot119               PASS        4120.00           0.05      81771.14  **
+                                                         ** test_hetero_4core.TC022_thermal_block_suppresses_pcore_hot120               PASS        4120.00           0.06      73549.20  **
+                                                         ** test_hetero_4core.TC023_thermal_block_ecore_stays_on_hot                    PASS        4120.00           0.06      74600.49  **
+                                                         ** test_hetero_4core.TC024_thermal_block_at_118                                PASS        4120.00           0.07      61353.33  **
+                                                         ** test_hetero_4core.TC025_thermal_block_at_115                                PASS        4120.00           0.05      76551.96  **
+                                                         ** test_hetero_4core.TC026_no_thermal_block_at_100                             PASS        4120.00           0.06      73808.06  **
+                                                         ** test_hetero_4core.TC027_no_thermal_block_at_80                              PASS        4120.00           0.06      67367.87  **
+                                                         ** test_hetero_4core.TC028_ecore_therm_high_doesnt_block_pcore                 PASS        4120.00           0.05      77509.95  **
+                                                         ** test_hetero_4core.TC029_thermal_sweep_105_to_119                            PASS       15120.00           0.14     109377.19  **
+                                                         ** test_hetero_4core.TC030_thermal_sweep_below_block                           PASS       10520.00           0.12      90919.74  **
+                                                         ** test_hetero_4core.TC031_thermal_recovery_p_to_e_back_to_p                   PASS        9120.00           0.09     105969.58  **
+                                                         ** test_hetero_4core.TC032_thermal_block_immediate_after_window                PASS        2420.00           0.04      62811.13  **
+                                                         ** test_hetero_4core.TC033_therm_exactly_112                                   PASS        4120.00           0.06      67782.74  **
+                                                         ** test_hetero_4core.TC034_both_thermals_max                                   PASS        3120.00           0.07      45970.14  **
+                                                         ** test_hetero_4core.TC035_ecore_active_flag_hot_stable                        PASS        2120.00           0.12      17419.47  **
+                                                         ** test_hetero_4core.TC036_aes_unaffected_by_thermal                           PASS        1520.00           0.05      31065.44  **
+                                                         ** test_hetero_4core.TC037_mig_to_e_when_thermally_blocked                     PASS        4120.00           0.06      64582.26  **
+                                                         ** test_hetero_4core.TC038_mig_state_to_e_when_entering_hot                    PASS        3620.00           0.06      61820.07  **
+                                                         ** test_hetero_4core.TC039_ecore_therm_ignored_for_block_logic                 PASS        3120.00           0.06      50552.13  **
+                                                         ** test_hetero_4core.TC040_10x_thermal_toggle_invariant                        PASS       18120.00           0.17     103744.15  **
+                                                         ** test_hetero_4core.TC041_therm_111_does_not_block                            PASS        3120.00           0.04      69705.11  **
+                                                         ** test_hetero_4core.TC042_therm_113_does_block                                PASS        3120.00           0.05      61381.21  **
+                                                         ** test_hetero_4core.TC043_thermal_block_no_affect_on_l2_retain                PASS        3120.00           0.05      63503.19  **
+                                                         ** test_hetero_4core.TC044_fast_thermal_spike_invariant                        PASS        1930.00           0.04      44078.93  **
+                                                         ** test_hetero_4core.TC045_thermal_ramp_up                                     PASS       12120.00           0.11     107257.17  **
+                                                         ** test_hetero_4core.TC046_initial_state_ecore_active                          PASS         120.00           0.02       5551.26  **
+                                                         ** test_hetero_4core.TC047_migration_state_reset_value                         PASS         120.00           0.02       5473.27  **
+                                                         ** test_hetero_4core.TC048_window_fires_within_80_cycles                       PASS         920.00           0.03      31152.44  **
+                                                         ** test_hetero_4core.TC049_mig_state_changes_over_time                         PASS       10120.00           0.09     107401.49  **
+                                                         ** test_hetero_4core.TC050_cool_long_run_valid_state                           PASS       10120.00           0.11      94487.97  **
+                                                         ** test_hetero_4core.TC051_hot_long_run_pcore_off                              PASS       10120.00           0.10     103977.85  **
+                                                         ** test_hetero_4core.TC052_mig_state_stability_constant_input                  PASS        6120.00           0.09      67446.71  **
+                                                         ** test_hetero_4core.TC053_multiple_windows_consistent                         PASS        3820.00           0.07      57264.22  **
+                                                         ** test_hetero_4core.TC054_ecore_active_reflects_mig_stay_e                    PASS        4120.00           0.06      74361.01  **
+                                                         ** test_hetero_4core.TC055_pcore_active_reflects_mig_stay_p                    PASS        6120.00           0.07      89283.97  **
+                                                         ** test_hetero_4core.TC056_no_pcore_on_to_e_state                              PASS        3120.00           0.04      69490.43  **
+                                                         ** test_hetero_4core.TC057_no_ecore_off_on_to_p_state                          PASS        4120.00           0.06      69283.42  **
+                                                         ** test_hetero_4core.TC058_hysteresis_prevents_rapid_toggling                  PASS        6120.00           0.07      81907.45  **
+                                                         ** test_hetero_4core.TC059_strong_signal_overrides_hysteresis                  PASS        5620.00           0.06      89317.95  **
+                                                         ** test_hetero_4core.TC060_migration_consistency_10_runs                       PASS        6360.00           0.13      48937.93  **
+                                                         ** test_hetero_4core.TC061_mig_state_valid_all_256_thermals                    PASS        9720.00           0.11      86357.39  **
+                                                         ** test_hetero_4core.TC062_ecore_therm_sweep_invariant                         PASS        4920.00           0.06      76640.44  **
+                                                         ** test_hetero_4core.TC063_pd_ecore_on_at_reset_plus_1                         PASS          60.00           0.02       3670.52  **
+                                                         ** test_hetero_4core.TC064_no_glitch_on_pd_aes_en                              PASS        5115.00           0.08      63188.62  **
+                                                         ** test_hetero_4core.TC065_mig_state_at_window_boundaries                      PASS        9710.00           0.13      76448.31  **
+                                                         ** test_hetero_4core.TC066_paired_pd_signals_cross_check                       PASS        5120.00           0.06      88968.03  **
+                                                         ** test_hetero_4core.TC067_thermal_transition_no_both_off                      PASS        2120.00           0.05      45063.02  **
+                                                         ** test_hetero_4core.TC068_feature_window_period_check                         PASS        2620.00           0.06      43263.06  **
+                                                         ** test_hetero_4core.TC069_mig_state_reachable_stay_e                          PASS        5120.00           0.09      54134.24  **
+                                                         ** test_hetero_4core.TC070_gradual_cooling_no_invariant_break                  PASS       10120.00           0.11      91500.71  **
+                                                         ** test_hetero_4core.TC071_gradual_heating_no_invariant_break                  PASS        7120.00           0.07      97237.37  **
+                                                         ** test_hetero_4core.TC072_aes_on_during_migration_event                       PASS        1920.00           0.04      54167.01  **
+                                                         ** test_hetero_4core.TC073_randomised_100_invariant_checks                     PASS       46590.00           0.41     113884.25  **
+                                                         ** test_hetero_4core.TC074_migration_state_not_x_after_reset                   PASS          90.00           0.02       5030.95  **
+                                                         ** test_hetero_4core.TC075_l2_retain_never_1_during_active_run                 PASS        5120.00           0.07      77657.41  **
+                                                         ** test_hetero_4core.TC076_mig_state_4windows_hot                              PASS        3080.00           0.05      65462.61  **
+                                                         ** test_hetero_4core.TC077_power_gating_ecore_default                          PASS         120.00           0.02       5273.75  **
+                                                         ** test_hetero_4core.TC078_multiple_reset_invariant                            PASS        5470.00           0.12      45992.85  **
+                                                         ** test_hetero_4core.TC079_perceptron_not_all_zeros                            PASS        7520.00           0.08      89830.67  **
+                                                         ** test_hetero_4core.TC080_no_deadlock_2000_cycles                             PASS       20120.00           0.18     108990.24  **
+                                                         ** test_hetero_4core.TC081_reset_during_window                                 PASS         880.00           0.03      33286.33  **
+                                                         ** test_hetero_4core.TC082_zero_thermal_reset                                  PASS        1060.00           0.02      44743.29  **
+                                                         ** test_hetero_4core.TC083_therm_change_during_reset                           PASS        1060.00           0.03      34149.54  **
+                                                         ** test_hetero_4core.TC084_single_cycle_reset                                  PASS        1010.00           0.02      44101.85  **
+                                                         ** test_hetero_4core.TC085_long_reset_50_cycles                                PASS        2500.00           0.13      19277.03  **
+                                                         ** test_hetero_4core.TC086_rst_high_pd_signals_valid                           PASS          50.00           0.01       4613.38  **
+                                                         ** test_hetero_4core.TC087_ecore_active_at_reset_high                          PASS          50.00           0.01       5885.42  **
+                                                         ** test_hetero_4core.TC088_pcore_off_at_reset_high                             PASS          50.00           0.01       4873.02  **
+                                                         ** test_hetero_4core.TC089_repeated_minimal_reset                              PASS        4000.00           0.61       6589.31  **
+                                                         ** test_hetero_4core.TC090_post_reset_mig_state_0                              PASS        5210.00           0.08      66831.17  **
+                                                         ** test_hetero_4core.TC091_cool_p                                              PASS       21960.00           0.19     116090.67  **
+                                                         ** test_hetero_4core.TC092_near_block_p                                        PASS       19730.00           0.20     100949.58  **
+                                                         ** test_hetero_4core.TC093_hot_p                                               PASS       21610.00           0.19     114453.91  **
+                                                         ** test_hetero_4core.TC094_hot_e                                               PASS       18650.00           0.16     113357.60  **
+                                                         ** test_hetero_4core.TC095_both_hot                                            PASS       19730.00           0.16     121221.06  **
+                                                         ** test_hetero_4core.TC096_short_bursts                                        PASS        4010.00           0.07      60485.56  **
+                                                         ** test_hetero_4core.TC097_long_bursts                                         PASS       74730.00           0.59     127538.42  **
+                                                         ** test_hetero_4core.TC098_window_aligned                                      PASS       18640.00           0.17     108680.51  **
+                                                         ** test_hetero_4core.TC099_tiny_bursts                                         PASS        1050.00           0.03      30118.51  **
+                                                         ** test_hetero_4core.TC100_threshold_zone                                      PASS       24720.00           0.21     120481.86  **
+                                                         ** test_hetero_4core.TC101_cool_longrun                                        PASS       90670.00           0.69     132266.69  **
+                                                         ** test_hetero_4core.TC102_hot_longrun                                         PASS       92620.00           0.70     132712.59  **
+                                                         ** test_hetero_4core.TC103_exact_window                                        PASS       12920.00           0.12     109573.41  **
+                                                         ** test_hetero_4core.TC104_mid_range                                           PASS       30420.00           0.25     122186.31  **
+                                                         ** test_hetero_4core.TC105_very_cool                                           PASS       61600.00           0.48     128524.14  **
+                                                         ** test_hetero_4core.TC106_just_above_blk                                      PASS       41050.00           0.31     131808.91  **
+                                                         ** test_hetero_4core.TC107_cool_p_hot_e                                        PASS       30770.00           0.24     128467.53  **
+                                                         ** test_hetero_4core.TC108_half_window                                         PASS       10660.00           0.11      98603.97  **
+                                                         ** test_hetero_4core.TC109_warm_p                                              PASS       41970.00           0.33     127046.83  **
+                                                         ** test_hetero_4core.TC110_cool_vlong                                          PASS      122380.00           0.90     135716.60  **
+                                                         ** test_hetero_4core.TC111_hot_vlong                                           PASS      130480.00           1.02     127650.91  **
+                                                         ** test_hetero_4core.TC112_nominal                                             PASS       29710.00           0.24     124143.63  **
+                                                         ** test_hetero_4core.TC113_very_cold                                           PASS       43290.00           0.33     129762.09  **
+                                                         ** test_hetero_4core.TC114_extreme_hot                                         PASS       44190.00           0.36     123622.22  **
+                                                         ** test_hetero_4core.TC115_full_random                                         PASS       40260.00           0.34     119790.59  **
+                                                         ** test_hetero_4core.TC116_stable_ecore_300_cycles                             PASS        3120.00           0.04      69492.27  **
+                                                         ** test_hetero_4core.TC117_pd_signals_no_glitch_cool                           PASS        2120.00           0.04      51051.08  **
+                                                         ** test_hetero_4core.TC118_therm_sawtooth_pattern                              PASS       10620.00           0.13      80961.85  **
+                                                         ** test_hetero_4core.TC119_therm_square_wave                                   PASS       12920.00           0.11     114128.80  **
+                                                         ** test_hetero_4core.TC120_therm_sinusoidal_approx                             PASS       10120.00           0.11      91633.45  **
+                                                         ** test_hetero_4core.TC121_concurrent_max_min_thermal                          PASS        3120.00           0.05      63647.42  **
+                                                         ** test_hetero_4core.TC122_concurrent_min_max_thermal                          PASS        3120.00           0.06      49938.67  **
+                                                         ** test_hetero_4core.TC123_migration_state_sticky_hysteresis                   PASS        7620.00           0.09      87030.84  **
+                                                         ** test_hetero_4core.TC124_ecore_on_before_pcore_on                            PASS          60.00           0.01       5038.00  **
+                                                         ** test_hetero_4core.TC125_pd_aes_en_is_hardwired_1                            PASS         620.00           0.03      23603.29  **
+                                                         ** test_hetero_4core.TC126_l2_retain_logic                                     PASS       10120.00           0.10     105249.95  **
+                                                         ** test_hetero_4core.TC127_mig_state_thermally_forced_to_e                     PASS        3820.00           0.05      70132.72  **
+                                                         ** test_hetero_4core.TC128_all_pd_signals_sampled_100_cycles                   PASS        1120.00           0.04      30605.19  **
+                                                         ** test_hetero_4core.TC129_mig_state_consistent_across_identical_runs          PASS       12360.00           0.20      63056.90  **
+                                                         ** test_hetero_4core.TC130_boundary_therm_delta_8                              PASS        4120.00           0.07      60566.08  **
+                                                         ** test_hetero_4core.TC131_pd_pcore_and_ecore_not_both_1_after_window          PASS        7520.00           0.08      93302.15  **
+                                                         ** test_hetero_4core.TC132_ecore_stays_on_thermal_oscillation                  PASS        9120.00           0.10      92381.76  **
+                                                         ** test_hetero_4core.TC133_feature_extractor_branch_density                    PASS        3120.00           0.04      70998.49  **
+                                                         ** test_hetero_4core.TC134_stress_5000_cycles                                  PASS       50120.00           0.38     133218.75  **
+                                                         ** test_hetero_4core.TC135_stress_5000_cycles_hot                              PASS       50120.00           0.39     129086.18  **
+                                                         ** test_hetero_4core.TC136_alternating_window_hot_cool                         PASS       12920.00           0.12     109520.71  **
+                                                         ** test_hetero_4core.TC137_no_change_to_aes_en_ever                            PASS        8120.00           0.09      88773.43  **
+                                                         ** test_hetero_4core.TC138_output_stable_during_reset_high                     PASS          80.00           0.02       4849.96  **
+                                                         ** test_hetero_4core.TC139_therm_step_response                                 PASS        4600.00           0.05      87908.07  **
+                                                         ** test_hetero_4core.TC140_therm_step_cool_recovery                            PASS        6120.00           0.07      88243.46  **
+                                                         ** test_hetero_4core.TC141_check_mig_state_bits_individually                   PASS        4120.00           0.05      79717.92  **
+                                                         ** test_hetero_4core.TC142_no_metastability_50_window_transitions              PASS       32120.00           0.28     112752.75  **
+                                                         ** test_hetero_4core.TC143_semaphore_no_effect_on_pd                           PASS        2120.00           0.08      25310.26  **
+                                                         ** test_hetero_4core.TC144_ecore_pd_always_1_under_thermal_block               PASS        3120.00           0.08      36832.63  **
+                                                         ** test_hetero_4core.TC145_migration_state_changes_max_3_per_10_windows_cool   PASS        9520.00           0.10      95602.62  **
+                                                         ** test_hetero_4core.TC146_pd_l2_retain_follows_formula                        PASS        2120.00           0.04      49200.05  **
+                                                         ** test_hetero_4core.TC147_all_outputs_valid_start_to_finish                   PASS        5050.00           0.08      62387.11  **
+                                                         ** test_hetero_4core.TC148_final_state_after_hot_cool_alternation              PASS       32120.00           0.25     128932.86  **
+                                                         ** test_hetero_4core.TC149_mig_state_reachable_to_e                            PASS        5120.00           0.06      83380.26  **
+                                                         ** test_hetero_4core.TC150_comprehensive_final_check                           PASS       21480.00           0.18     118707.50  **
+                                                         ***********************************************************************************************************************************
+                                                         ** TESTS=150 PASS=150 FAIL=0 SKIP=0                                                     1872415.15          19.10      98013.97  **
+                                                         ***********************************************************************************************************************************
+make[1]: Leaving directory '/home/ubuntu/OpenLane/designs/hetero_4core/sim'
