@@ -247,47 +247,6 @@ The heart of the design — a **4-input single-layer perceptron** that runs cont
 > At no time shall both PD_P and PD_E be simultaneously de-asserted. AES domain is permanently ON.
 
 ---
-
-## 📁 Repository Structure
-
-```
-hetero_4core/
-├── src/
-│   ├── hetero_4core.v          # Complete RTL (13 modules, ~900 lines)
-│   └── constraints.sdc         # Timing constraints (50 MHz, Sky130A)
-├── rtl/
-│   └── hetero_4core.v          # Original RTL (pre-optimization)
-├── sim/
-│   ├── test_hetero_4core.py    # cocotb testbench (150 TCs, 6 groups)
-│   ├── run_sim.sh              # Icarus Verilog simulation script
-│   ├── Makefile                # cocotb Makefile
-│   ├── sim_results.log         # Full simulation log (150/150 PASS)
-│   └── results.xml             # JUnit XML results
-├── config.json                 # OpenLane flow configuration
-├── runs/
-│   └── RUN_2026.05.09_13.59.48/
-│       ├── results/
-│       │   ├── synthesis/      # Synthesized netlist + SDF
-│       │   ├── floorplan/      # Floorplan ODB/DEF
-│       │   ├── placement/      # Placed netlist
-│       │   ├── cts/            # Clock-tree synthesized
-│       │   ├── routing/        # Routed + MCA SDF/SPEF
-│       │   └── signoff/        # GDS, MAG, LEF, LVS, DRC
-│       ├── reports/
-│       │   ├── metrics.csv     # Full flow metrics
-│       │   ├── manufacturability.rpt
-│       │   ├── synthesis/      # Timing reports
-│       │   ├── placement/      # GPL + DPL STA
-│       │   ├── cts/            # CTS STA
-│       │   ├── routing/        # Routing STA + wire lengths
-│       │   └── signoff/        # RC-extracted STA, IR drop, DRC, LVS
-│       └── runtime.yaml        # Per-stage runtime breakdown
-└── tmp/
-    └── show_lines.py           # RTL analysis utility
-```
-
----
-
 ## 🔬 RTL Design Details
 
 ### Module Hierarchy
