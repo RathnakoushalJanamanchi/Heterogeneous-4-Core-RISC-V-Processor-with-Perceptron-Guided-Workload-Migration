@@ -1,0 +1,27 @@
+
+53. Printing statistics.
+
+=== hetero_4core_top ===
+
+   Number of wires:              98880
+   Number of wire bits:         108827
+   Number of public wires:         419
+   Number of public wire bits:   10274
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             108132
+     $_ANDNOT_                   11744
+     $_AND_                      16879
+     $_MUX_                      46790
+     $_NAND_                       370
+     $_NOR_                        560
+     $_NOT_                       9803
+     $_ORNOT_                      381
+     $_OR_                       10439
+     $_XNOR_                       397
+     $_XOR_                       1216
+     sky130_fd_sc_hd__dfrtp_2     3355
+     sky130_fd_sc_hd__dfstp_2     6154
+     sky130_fd_sc_hd__dfxtp_2       44
+

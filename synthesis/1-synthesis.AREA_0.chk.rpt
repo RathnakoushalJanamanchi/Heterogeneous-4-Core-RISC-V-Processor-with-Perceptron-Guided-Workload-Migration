@@ -1,0 +1,10 @@
+
+60. Executing CHECK pass (checking for obvious problems).
+Checking module hetero_4core_top...
+Warning: Wire hetero_4core_top.\pd_pcore_en is used but has no driver.
+Warning: Wire hetero_4core_top.\pd_l2_retain is used but has no driver.
+Warning: Wire hetero_4core_top.\pd_ecore_en is used but has no driver.
+Warning: Wire hetero_4core_top.\pd_aes_en is used but has no driver.
+Warning: Wire hetero_4core_top.\migration_state [1] is used but has no driver.
+Warning: Wire hetero_4core_top.\migration_state [0] is used but has no driver.
+Found and reported 6 problems.
